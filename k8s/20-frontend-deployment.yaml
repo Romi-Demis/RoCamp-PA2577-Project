@@ -16,7 +16,7 @@ spec:
         - name: frontend
           image: romita71323/rocamp-frontend:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 80
           env:
             - name: API_BASE_URL
               value: /api
