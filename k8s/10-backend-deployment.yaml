@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
         - name: backend
-          image: YOUR_DOCKERHUB_USER/backend:latest
+          image: romita71323/rocamp-backend:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 5000
           env:
             - name: DB_HOST
               value: postgres
