@@ -5,75 +5,78 @@ A comprehensive, cloud-native eLearning platform built with React, Node.js, and 
 ## 🚀 Features
 
 ### Core Functionality
-- **User Management**: Role-based authentication (Students, Instructors, Admins)
-- **Course Catalog**: Browse and search courses with filtering by category and difficulty
-- **Video Learning**: Stream video lectures with progress tracking
-- **Interactive Quizzes**: Take timed quizzes with instant feedback and scoring
-- **Progress Tracking**: Monitor learning progress with detailed analytics
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+User Management:Secure user authentication with role-based access for Students, Instructors, and Administrators.
+Course Catalog:Users can browse, search, and filter courses by category, difficulty level, and topic.
+Video Learning:Students can stream lecture videos with automatic tracking of viewing progress.
+Interactive Quizzes:Timed quizzes provide instant feedback and automatically calculate scores.
+Progress Tracking:The platform records completed lessons and quiz results to display detailed learning progress.
+Responsive Design:The user interface adapts seamlessly to desktops, tablets, and mobile devices for an optimal experience.
 
 ### Technical Features
-- **Three-Tier Architecture**: Clean separation of presentation, business logic, and data layers
-- **RESTful API**: Comprehensive API with detailed documentation
-- **JWT Authentication**: Secure token-based authentication
-- **Real-time Updates**: Progress tracking and notifications
-- **File Management**: Support for video, documents, and course materials
-- **Database Optimization**: Indexed queries and efficient data structures
+Three-Tier Architecture:The system is designed with a clear separation between the frontend (presentation layer), backend API (business logic), and database (data layer), improving scalability and maintainability.
+RESTful API:All backend functionality is exposed through well-structured REST endpoints that allow the frontend and external services to communicate with the system.
+JWT Authentication:Secure authentication is implemented using JSON Web Tokens, ensuring that only authorized users can access protected resources.
+Real-time Updates:The platform provides dynamic updates for user progress, quiz results, and learning activity without requiring full page reloads.
+File Management:The system supports uploading and managing learning materials such as videos, documents, and course resources.
+Database Optimization:The database uses indexed tables and optimized queries to ensure fast data retrieval and reliable performance, even as the number of users grows.
 
 ## 🏗️ Architecture
 
 ### Frontend (React)
-- **Framework**: React 18 with TypeScript
-- **Styling**: Tailwind CSS with custom design system
-- **State Management**: Context API for authentication and global state
-- **Routing**: React Router for client-side navigation
-- **HTTP Client**: Axios with interceptors for API communication
+Framework:Built using React 18 with TypeScript, providing a modern, strongly typed, and component-based user interface.
+Styling:Styled with Tailwind CSS and a custom design system to ensure consistency, responsiveness, and a clean visual layout.
+State Management:Uses the React Context API to manage authentication, user sessions, and global application state.
+Routing:React Router is used for client-side navigation, allowing smooth transitions between pages without reloading.
+API Communication:Axios is used as the HTTP client with interceptors for handling authentication tokens and error responses when communicating with the backend API.
 
 ### Backend (Node.js)
-- **Runtime**: Node.js with Express.js framework
-- **Authentication**: JWT tokens with bcrypt password hashing
-- **Security**: Helmet, CORS, rate limiting, and input validation
-- **File Upload**: Multer for handling file uploads (ready for S3 integration)
-- **Error Handling**: Centralized error handling with detailed logging
+Runtime:The backend is built using Node.js with the Express.js framework to provide a fast, scalable, and lightweight REST API.
+Authentication:User authentication is implemented using JSON Web Tokens (JWT) combined with bcrypt for secure password hashing and verification.
+Security:Multiple security layers are applied, including Helmet for HTTP headers, CORS for cross-origin requests, rate limiting to prevent abuse, and input validation to protect against malicious data.
+File Uploads:Multer is used to handle file uploads, allowing users to upload course materials such as videos and documents. The system is designed to integrate with cloud storage services such as Amazon S3.
+Error Handling & Logging:The application uses centralized error handling with structured logging, making it easier to detect, debug, and resolve issues in production environments.
 
-### Database (MySQL/PostgreSQL)
-- **Primary Database**: MySQL/PostgreSQL compatible schema
-- **Data Structure**: Normalized tables with proper indexing
-- **Relationships**: Foreign key constraints and referential integrity
-- **Performance**: Optimized queries with proper indexes
-
+###Database (MySQL / PostgreSQL)
+Primary Database:The platform uses a relational database compatible with MySQL and PostgreSQL to store user data, courses, quizzes, and learning progress.
+Data Structure:The database schema is fully normalized with well-defined tables to reduce redundancy and improve data consistency.
+Relationships & Integrity:Foreign key constraints are used to maintain strong relationships between tables, ensuring data integrity across users, courses, and enrollments.
+Performance Optimization:Frequently accessed columns are indexed and queries are optimized to provide fast and reliable performance as the system scales.
 ## 🛠️ Technologies Used
 
-### Frontend
-- React 18
-- TypeScript
-- Tailwind CSS
-- React Router
-- Axios
-- Lucide React Icons
+### Frontend Technologies
 
-### Backend
-- Node.js
-- Express.js
-- JWT (jsonwebtoken)
-- bcryptjs
-- MySQL2
-- Helmet
-- CORS
-- Express Rate Limit
+React 18 – Modern JavaScript framework for building fast, component-based user interfaces
+TypeScript – Provides static typing for safer and more maintainable code
+Tailwind CSS – Utility-first CSS framework for responsive and consistent styling
+React Router – Handles client-side navigation and page routing
+Axios – HTTP client used for communication with the backend REST API
+Lucide React Icons – Lightweight and customizable icon library for a polished user interface
 
-### Development Tools
-- ESLint
-- Prettier
-- Git
-- npm/yarn
+### Backend Technologies
+
+Node.js – High-performance JavaScript runtime for building scalable server-side applications
+Express.js – Lightweight web framework for creating RESTful APIs
+JWT (jsonwebtoken) – Used for secure user authentication and session management
+bcryptjs – Provides secure password hashing and verification
+MySQL2 – Database client for communicating with MySQL and PostgreSQL-compatible databases
+Helmet – Adds HTTP security headers to protect against common web vulnerabilities
+CORS – Controls cross-origin resource sharing for secure frontend–backend communication
+Express Rate Limit – Protects the API from abuse by limiting excessive requests
+
+###Development Tools
+
+ESLint – Enforces consistent code quality and helps identify potential errors
+Prettier – Automatically formats code to maintain a clean and readable styl
+Git – Version control system used to manage source code and collaboration
+npm / Yarn – Package managers for installing, managing, and running project dependencies
 
 ## 📦 Installation
 
 ### Prerequisites
-- Node.js 16+ and npm
-- MySQL 8.0+ or PostgreSQL 12+
-- Git
+To run and deploy the EduPort platform, the following tools must be installed:
+Node.js 16+ and npm – Required to run and build both the frontend and backend services
+MySQL 8.0+ or PostgreSQL 12+ – Used as the relational database for storing application data
+Git – Used to clone the repository and manage version control
 
 ### Local Development Setup
 
@@ -124,15 +127,32 @@ The application will be available at:
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:5000
 
-## 🌐 AWS Deployment Architecture
+  Docker Hub Images
+Service	Docker Image
+
+Backend API	https://hub.docker.com/r/romita71323/rocamp-backend
+Frontend UI	https://hub.docker.com/r/romita71323/rocamp-frontend
+
+These images are pulled by Kubernetes and run as independent microservices.
+
+## 🌐## Kubernetes Deployment Architecture
+
+The EduPort platform is deployed as a set of containerized microservices running on a Kubernetes cluster.
 
 ### Infrastructure Components
-- **Frontend**: React app hosted on Amazon S3 + CloudFront CDN
-- **Backend**: Node.js API on Amazon EC2 with Elastic Load Balancer
-- **Database**: Amazon RDS (MySQL/PostgreSQL) with Multi-AZ deployment
-- **Storage**: Amazon S3 for course videos, materials, and user uploads
-- **DNS**: Amazon Route 53 for custom domain management
-- **Security**: AWS Certificate Manager for HTTPS, IAM roles for access control
+- **Frontend**
+  The React application is built and served using an NGINX container and exposed through a Kubernetes Service and Ingress.
+- **Backend**
+  The Node.js REST API runs in its own Kubernetes Deployment and communicates with the database through a Kubernetes Service.
+- **Database**
+  PostgreSQL runs as a separate Kubernetes Deployment with a Persistent Volume Claim (PVC) to ensure data is retained across pod restarts.
+- **Networking**
+  Kubernetes Services provide internal communication between microservices, while an Ingress allows external browser access.
+- **Scalability**
+  The frontend and backend services are horizontally scalable using Kubernetes Horizontal Pod Autoscalers (HPA).
+- **Container Registry**
+  All container images are stored in Docker Hub and pulled by Kubernetes during deployment.
+
 
 ### Deployment Steps
 1. **Database**: Set up Amazon RDS instance and run schema
@@ -194,6 +214,8 @@ JWT_SECRET=your-super-secure-jwt-secret
 AWS_REGION=us-east-1
 AWS_S3_BUCKET=eduport-media-bucket
 ```
+⚠️ This project is currently deployed using Docker and Kubernetes (Docker Desktop).
+The AWS architecture described below represents a future cloud deployment plan and is not part of the current implementation.
 
 ### AWS Configuration
 - Configure IAM roles for EC2 and S3 access
