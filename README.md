@@ -131,6 +131,7 @@ The application will be available at:
 Service	Docker Image
 
 Backend API	https://hub.docker.com/r/romita71323/rocamp-backend
+
 Frontend UI	https://hub.docker.com/r/romita71323/rocamp-frontend
 
 These images are pulled by Kubernetes and run as independent microservices.
