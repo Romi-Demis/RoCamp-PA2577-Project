@@ -124,8 +124,10 @@ npm run dev
 ```
 
 The application will be available at:
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5000
+
+Frontend: http://localhost:8080 (via kubectl port-forward svc/frontend 8080:80)
+
+Backend: http://localhost:5000/... (via kubectl port-forward svc/backend 5000:80)
 
   Docker Hub Images
 Service	Docker Image
